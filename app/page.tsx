@@ -126,8 +126,9 @@ export default function ALAutoDetail() {
 
        {/* PRIX PREMIUM */}
 <section className="max-w-7xl mx-auto px-6 py-24">
+
   <div className="text-center mb-16">
-    <p className="text-red-500 uppercase tracking-[6px] mb-4">
+    <p className="text-red-500 uppercase tracking-[6px] mb-4 font-semibold">
       NOS SERVICES
     </p>
 
@@ -139,141 +140,204 @@ export default function ALAutoDetail() {
   <div className="grid lg:grid-cols-3 gap-8">
 
     {/* SEDAN */}
-    <div className="bg-[#050505] border border-zinc-800 rounded-[28px] overflow-hidden shadow-2xl">
+    <div className="bg-[#070707] border border-zinc-800 rounded-[30px] overflow-hidden shadow-2xl">
 
-      <div className="p-6 pb-0">
-        <h4 className="text-center text-4xl font-black uppercase mb-6">
+      <div className="p-5">
+        <h4 className="text-center text-4xl font-black mb-5 uppercase">
           SEDAN
         </h4>
 
         <img
           src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1200&auto=format&fit=crop"
           alt="Sedan"
-          className="w-full h-64 object-cover rounded-2xl"
+          className="w-full h-[260px] object-cover rounded-2xl"
         />
       </div>
 
-      <div className="p-6 space-y-4">
+      <div className="px-5 pb-5 space-y-4">
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🧼</span>
-            <p className="font-bold uppercase">Intérieur Premium</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🧼
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Intérieur Premium
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">220$</p>
+          <p className="text-red-500 text-3xl font-black">
+            220$
+          </p>
         </div>
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🚗</span>
-            <p className="font-bold uppercase">Extérieur Premium</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🚗
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Extérieur Premium
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">220$</p>
+          <p className="text-red-500 text-3xl font-black">
+            220$
+          </p>
         </div>
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🎁</span>
-            <p className="font-bold uppercase">Package Int./Ext.</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🎁
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Package Int./Ext.
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">380$</p>
+          <p className="text-red-500 text-3xl font-black">
+            380$
+          </p>
         </div>
 
       </div>
     </div>
 
     {/* VUS */}
-    <div className="bg-[#050505] border border-zinc-800 rounded-[28px] overflow-hidden shadow-2xl">
+    <div className="bg-[#070707] border border-zinc-800 rounded-[30px] overflow-hidden shadow-2xl">
 
-      <div className="p-6 pb-0">
-        <h4 className="text-center text-4xl font-black uppercase mb-6">
+      <div className="p-5">
+        <h4 className="text-center text-4xl font-black mb-5 uppercase">
           VUS
         </h4>
 
         <img
           src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200&auto=format&fit=crop"
           alt="VUS"
-          className="w-full h-64 object-cover rounded-2xl"
+          className="w-full h-[260px] object-cover rounded-2xl"
         />
       </div>
 
-      <div className="p-6 space-y-4">
+      <div className="px-5 pb-5 space-y-4">
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🧼</span>
-            <p className="font-bold uppercase">Intérieur Premium</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🧼
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Intérieur Premium
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">230$</p>
+          <p className="text-red-500 text-3xl font-black">
+            230$
+          </p>
         </div>
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🚗</span>
-            <p className="font-bold uppercase">Extérieur Premium</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🚗
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Extérieur Premium
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">230$</p>
+          <p className="text-red-500 text-3xl font-black">
+            230$
+          </p>
         </div>
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🎁</span>
-            <p className="font-bold uppercase">Package Int./Ext.</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🎁
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Package Int./Ext.
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">400$</p>
+          <p className="text-red-500 text-3xl font-black">
+            400$
+          </p>
         </div>
 
       </div>
     </div>
 
     {/* PICKUP */}
-    <div className="bg-[#050505] border border-zinc-800 rounded-[28px] overflow-hidden shadow-2xl">
+    <div className="bg-[#070707] border border-zinc-800 rounded-[30px] overflow-hidden shadow-2xl">
 
-      <div className="p-6 pb-0">
-        <h4 className="text-center text-4xl font-black uppercase mb-6">
+      <div className="p-5">
+        <h4 className="text-center text-4xl font-black mb-5 uppercase">
           PICKUP / 7 PASSAGERS
         </h4>
 
         <img
           src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=1200&auto=format&fit=crop"
           alt="Pickup"
-          className="w-full h-64 object-cover rounded-2xl"
+          className="w-full h-[260px] object-cover rounded-2xl"
         />
       </div>
 
-      <div className="p-6 space-y-4">
+      <div className="px-5 pb-5 space-y-4">
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🧼</span>
-            <p className="font-bold uppercase">Intérieur Premium</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🧼
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Intérieur Premium
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">250$</p>
+          <p className="text-red-500 text-3xl font-black">
+            250$
+          </p>
         </div>
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🚗</span>
-            <p className="font-bold uppercase">Extérieur Premium</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🚗
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Extérieur Premium
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">250$</p>
+          <p className="text-red-500 text-3xl font-black">
+            250$
+          </p>
         </div>
 
         <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-red-500 text-xl">🎁</span>
-            <p className="font-bold uppercase">Package Int./Ext.</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-zinc-900 w-12 h-12 rounded-xl flex items-center justify-center text-red-500 text-2xl">
+              🎁
+            </div>
+
+            <p className="uppercase font-bold text-lg">
+              Package Int./Ext.
+            </p>
           </div>
 
-          <p className="text-red-500 text-2xl font-black">440$</p>
+          <p className="text-red-500 text-3xl font-black">
+            440$
+          </p>
         </div>
 
       </div>
@@ -282,18 +346,19 @@ export default function ALAutoDetail() {
   </div>
 
   <div className="text-center mt-14">
-    <p className="text-gray-300 text-lg mb-8">
+    <p className="text-gray-300 text-xl mb-8">
       📍 Service à domicile • Blainville & Laurentides • Réservez en quelques clics
     </p>
 
     <a
       href="https://calendly.com/alautodetail88"
       target="_blank"
-      className="inline-block bg-red-600 hover:bg-red-700 transition px-10 py-5 rounded-2xl text-2xl font-black shadow-2xl"
+      className="inline-block bg-red-600 hover:bg-red-700 transition px-12 py-5 rounded-2xl text-2xl font-black shadow-2xl"
     >
       PRENDRE RENDEZ-VOUS
     </a>
   </div>
+
 </section>
 
       </section>
