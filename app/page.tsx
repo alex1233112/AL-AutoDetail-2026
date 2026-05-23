@@ -124,112 +124,177 @@ export default function ALAutoDetail() {
           </h3>
         </div>
 
-       {/* PRIX PAR VÉHICULE */}
-<div className="grid lg:grid-cols-3 gap-8">
+       {/* PRIX PREMIUM */}
+<section className="max-w-7xl mx-auto px-6 py-24">
+  <div className="text-center mb-16">
+    <p className="text-red-500 uppercase tracking-[6px] mb-4">
+      NOS SERVICES
+    </p>
 
-  {/* SEDAN */}
-  <div className="bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
-    <img
-      src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop"
-      alt="Sedan"
-      className="h-56 w-full object-cover"
-    />
+    <h3 className="text-5xl md:text-7xl font-black uppercase">
+      L’EXCELLENCE À CHAQUE ÉTAPE
+    </h3>
+  </div>
 
-    <div className="p-6">
-      <h4 className="text-3xl font-black text-center mb-6 text-white">
-        SEDAN
-      </h4>
+  <div className="grid lg:grid-cols-3 gap-8">
 
-      <div className="space-y-4">
+    {/* SEDAN */}
+    <div className="bg-[#050505] border border-zinc-800 rounded-[28px] overflow-hidden shadow-2xl">
 
-        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Intérieur Premium</p>
+      <div className="p-6 pb-0">
+        <h4 className="text-center text-4xl font-black uppercase mb-6">
+          SEDAN
+        </h4>
+
+        <img
+          src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1200&auto=format&fit=crop"
+          alt="Sedan"
+          className="w-full h-64 object-cover rounded-2xl"
+        />
+      </div>
+
+      <div className="p-6 space-y-4">
+
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🧼</span>
+            <p className="font-bold uppercase">Intérieur Premium</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">220$</p>
         </div>
 
-        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Extérieur Premium</p>
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🚗</span>
+            <p className="font-bold uppercase">Extérieur Premium</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">220$</p>
         </div>
 
-        <div className="flex items-center justify-between bg-black border border-red-700 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Package Int./Ext.</p>
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🎁</span>
+            <p className="font-bold uppercase">Package Int./Ext.</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">380$</p>
         </div>
 
       </div>
     </div>
-  </div>
 
-  {/* VUS */}
-  <div className="bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
-    <img
-      src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop"
-      alt="VUS"
-      className="h-56 w-full object-cover"
-    />
+    {/* VUS */}
+    <div className="bg-[#050505] border border-zinc-800 rounded-[28px] overflow-hidden shadow-2xl">
 
-    <div className="p-6">
-      <h4 className="text-3xl font-black text-center mb-6 text-white">
-        VUS
-      </h4>
+      <div className="p-6 pb-0">
+        <h4 className="text-center text-4xl font-black uppercase mb-6">
+          VUS
+        </h4>
 
-      <div className="space-y-4">
+        <img
+          src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200&auto=format&fit=crop"
+          alt="VUS"
+          className="w-full h-64 object-cover rounded-2xl"
+        />
+      </div>
 
-        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Intérieur Premium</p>
+      <div className="p-6 space-y-4">
+
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🧼</span>
+            <p className="font-bold uppercase">Intérieur Premium</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">230$</p>
         </div>
 
-        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Extérieur Premium</p>
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🚗</span>
+            <p className="font-bold uppercase">Extérieur Premium</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">230$</p>
         </div>
 
-        <div className="flex items-center justify-between bg-black border border-red-700 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Package Int./Ext.</p>
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🎁</span>
+            <p className="font-bold uppercase">Package Int./Ext.</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">400$</p>
         </div>
 
       </div>
     </div>
-  </div>
 
-  {/* PICKUP */}
-  <div className="bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
-    <img
-      src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop"
-      alt="Pickup"
-      className="h-56 w-full object-cover"
-    />
+    {/* PICKUP */}
+    <div className="bg-[#050505] border border-zinc-800 rounded-[28px] overflow-hidden shadow-2xl">
 
-    <div className="p-6">
-      <h4 className="text-3xl font-black text-center mb-6 text-white">
-        PICKUP / 7 PASSAGERS
-      </h4>
+      <div className="p-6 pb-0">
+        <h4 className="text-center text-4xl font-black uppercase mb-6">
+          PICKUP / 7 PASSAGERS
+        </h4>
 
-      <div className="space-y-4">
+        <img
+          src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=1200&auto=format&fit=crop"
+          alt="Pickup"
+          className="w-full h-64 object-cover rounded-2xl"
+        />
+      </div>
 
-        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Intérieur Premium</p>
+      <div className="p-6 space-y-4">
+
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🧼</span>
+            <p className="font-bold uppercase">Intérieur Premium</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">250$</p>
         </div>
 
-        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Extérieur Premium</p>
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🚗</span>
+            <p className="font-bold uppercase">Extérieur Premium</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">250$</p>
         </div>
 
-        <div className="flex items-center justify-between bg-black border border-red-700 rounded-2xl px-5 py-4">
-          <p className="font-semibold">Package Int./Ext.</p>
+        <div className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-red-500 text-xl">🎁</span>
+            <p className="font-bold uppercase">Package Int./Ext.</p>
+          </div>
+
           <p className="text-red-500 text-2xl font-black">440$</p>
         </div>
 
       </div>
     </div>
+
   </div>
 
-</div>
+  <div className="text-center mt-14">
+    <p className="text-gray-300 text-lg mb-8">
+      📍 Service à domicile • Blainville & Laurentides • Réservez en quelques clics
+    </p>
+
+    <a
+      href="https://calendly.com/alautodetail88"
+      target="_blank"
+      className="inline-block bg-red-600 hover:bg-red-700 transition px-10 py-5 rounded-2xl text-2xl font-black shadow-2xl"
+    >
+      PRENDRE RENDEZ-VOUS
+    </a>
+  </div>
+</section>
 
       </section>
     
