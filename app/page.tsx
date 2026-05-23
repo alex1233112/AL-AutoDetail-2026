@@ -24,13 +24,6 @@ export default function ALAutoDetail() {
               </div>
             </div>
 
-            <a
-              href="https://calendly.com/alautodetail88"
-              target="_blank"
-              className="bg-red-600 hover:bg-red-700 transition px-6 py-3 rounded-2xl font-bold shadow-lg"
-            >
-              Prendre rendez-vous
-            </a>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -98,7 +91,7 @@ export default function ALAutoDetail() {
     },
     {
       title: 'Céramique Coating',
-      text: 'Protection céramique disponible en traitement 3 mois, 6 mois ou 9 mois pour protéger la peinture contre les contaminants, l’eau et les UV.',
+      text: 'Protection céramique disponible en traitement 3 mois, 6 mois ou 9 mois et plus pour protéger la peinture contre les contaminants, l’eau et les UV.',
     },
   ].map((service, index) => (
     <div
@@ -139,9 +132,9 @@ export default function ALAutoDetail() {
     ['Extérieur Premium VUS', '230$'],
     ['Intérieur Premium Pickup / 7 passagers', '250$'],
     ['Extérieur Premium Pickup / 7 passagers', '250$'],
-    ['Package Premium Sedan', '380$'],
-    ['Package Premium VUS', '400$'],
-    ['Package Premium Pickup / 7 passagers', '440$'],
+    ['Int/ext. Premium Sedan', '380$'],
+    ['Int/ext. Premium VUS', '400$'],
+    ['Int/ext. Premium Pickup / 7 passagers', '440$'],
   ].map((item, index) => (
     <div
       key={index}
