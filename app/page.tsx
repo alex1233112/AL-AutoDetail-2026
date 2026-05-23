@@ -138,14 +138,14 @@ export default function ALAutoDetail() {
   ].map((item, index) => (
     <div
       key={index}
-      className="bg-zinc-950 border border-zinc-800 hover:border-red-600 transition rounded-2xl p-5"
+      className="bg-zinc-950 border border-zinc-800 hover:border-red-600/60 transition rounded-xl px-4 py-3"
     >
       <div className="flex items-center justify-between gap-4">
-        <h4 className="text-base font-bold text-white leading-snug">
+        <h4 className="text-sm font-semibold text-white leading-snug">
           {item[0]}
         </h4>
 
-        <p className="text-xl font-bold text-red-500 whitespace-nowrap tracking-wide">
+        <p className="text-lg font-bold text-red-500 whitespace-nowrap">
   {item[1]}
 </p>
       </div>
