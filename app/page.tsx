@@ -1,12 +1,13 @@
+{/* PRIX PREMIUM */}
 <section className="max-w-7xl mx-auto px-6 py-24">
 
   <div className="text-center mb-16">
-    <p className="text-red-500 uppercase tracking-[4px] mb-3">
-      Nos Services
+    <p className="text-red-500 uppercase tracking-[6px] mb-4 font-semibold">
+      NOS FORFAITS
     </p>
 
-    <h3 className="text-5xl font-black">
-      L’EXCELLENCE À CHAQUE ÉTAPE
+    <h3 className="text-5xl md:text-7xl font-black uppercase">
+      TARIFS PREMIUM
     </h3>
   </div>
 
@@ -40,10 +41,10 @@
     ].map((car, index) => (
       <div
         key={index}
-        className="bg-black border border-zinc-800 rounded-[34px] p-5"
+        className="bg-black border border-zinc-800 rounded-[34px] p-5 shadow-2xl"
       >
 
-        <h4 className="text-center text-5xl font-black uppercase mb-6">
+        <h4 className="text-center text-4xl font-black uppercase mb-6">
           {car.title}
         </h4>
 
@@ -118,5 +119,7 @@
         </div>
       </div>
     ))}
+
   </div>
+
 </section>
