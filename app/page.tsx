@@ -139,231 +139,112 @@ export default function ALAutoDetail() {
 
   <div className="grid xl:grid-cols-3 gap-10">
 
-    {/* SEDAN */}
-    <div className="bg-[#050505] border border-[#161616] rounded-[32px] p-6 shadow-[0_0_40px_rgba(255,0,0,0.06)]">
+    {[
+      {
+        title: 'SEDAN',
+        image:
+          'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1400&auto=format&fit=crop',
+        interior: '220$',
+        exterior: '220$',
+        package: '380$',
+      },
+      {
+        title: 'VUS',
+        image:
+          'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1400&auto=format&fit=crop',
+        interior: '230$',
+        exterior: '230$',
+        package: '400$',
+      },
+      {
+        title: 'PICKUP / 7 PASSAGERS',
+        image:
+          'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=1400&auto=format&fit=crop',
+        interior: '250$',
+        exterior: '250$',
+        package: '440$',
+      },
+    ].map((car, index) => (
+      <div
+        key={index}
+        className="bg-[#050505] border border-zinc-800 rounded-[32px] overflow-hidden p-6"
+      >
 
-      <h4 className="text-center text-4xl font-black uppercase mb-6">
-        Sedan
-      </h4>
+        <h4 className="text-center text-4xl font-black uppercase mb-6">
+          {car.title}
+        </h4>
 
-      <img
-        src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=1400&auto=format&fit=crop"
-        alt="Sedan"
-        className="w-full h-[320px] object-cover rounded-[26px] mb-8"
-      />
+        <img
+          src={car.image}
+          alt={car.title}
+          className="w-full h-[250px] object-cover rounded-[24px] mb-6"
+        />
 
-      <div className="space-y-6">
+        <div className="space-y-5">
 
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
+          <div className="bg-black border border-zinc-800 rounded-[24px] px-6 py-5 flex items-center justify-between">
 
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🧼
+            <div className="flex items-center gap-5">
+
+              <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
+                🧼
+              </div>
+
+              <p className="uppercase font-black text-2xl leading-tight">
+                Intérieur
+                <br />
+                Premium
+              </p>
             </div>
 
-            <p className="uppercase font-black text-3xl leading-tight">
-              Intérieur
-              <br />
-              Premium
+            <p className="text-red-500 text-5xl font-black">
+              {car.interior}
             </p>
           </div>
 
-          <p className="text-red-500 text-6xl font-black">
-            220$
-          </p>
-        </div>
+          <div className="bg-black border border-zinc-800 rounded-[24px] px-6 py-5 flex items-center justify-between">
 
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
+            <div className="flex items-center gap-5">
 
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🚘
+              <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
+                🚘
+              </div>
+
+              <p className="uppercase font-black text-2xl leading-tight">
+                Extérieur
+                <br />
+                Premium
+              </p>
             </div>
 
-            <p className="uppercase font-black text-3xl leading-tight">
-              Extérieur
-              <br />
-              Premium
+            <p className="text-red-500 text-5xl font-black">
+              {car.exterior}
             </p>
           </div>
 
-          <p className="text-red-500 text-6xl font-black">
-            220$
-          </p>
-        </div>
+          <div className="bg-black border border-zinc-800 rounded-[24px] px-6 py-5 flex items-center justify-between">
 
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
+            <div className="flex items-center gap-5">
 
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🎁
+              <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
+                🎁
+              </div>
+
+              <p className="uppercase font-black text-2xl leading-tight">
+                Package
+                <br />
+                Int./Ext.
+              </p>
             </div>
 
-            <p className="uppercase font-black text-3xl leading-tight">
-              Package
-              <br />
-              Int./Ext.
+            <p className="text-red-500 text-5xl font-black">
+              {car.package}
             </p>
           </div>
 
-          <p className="text-red-500 text-6xl font-black">
-            380$
-          </p>
         </div>
-
       </div>
-    </div>
-
-    {/* VUS */}
-    <div className="bg-[#050505] border border-[#161616] rounded-[32px] p-6 shadow-[0_0_40px_rgba(255,0,0,0.06)]">
-
-      <h4 className="text-center text-4xl font-black uppercase mb-6">
-        VUS
-      </h4>
-
-      <img
-        src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1400&auto=format&fit=crop"
-        alt="VUS"
-        className="w-full h-[320px] object-cover rounded-[26px] mb-8"
-      />
-
-      <div className="space-y-6">
-
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
-
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🧼
-            </div>
-
-            <p className="uppercase font-black text-3xl leading-tight">
-              Intérieur
-              <br />
-              Premium
-            </p>
-          </div>
-
-          <p className="text-red-500 text-6xl font-black">
-            230$
-          </p>
-        </div>
-
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
-
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🚘
-            </div>
-
-            <p className="uppercase font-black text-3xl leading-tight">
-              Extérieur
-              <br />
-              Premium
-            </p>
-          </div>
-
-          <p className="text-red-500 text-6xl font-black">
-            230$
-          </p>
-        </div>
-
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
-
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🎁
-            </div>
-
-            <p className="uppercase font-black text-3xl leading-tight">
-              Package
-              <br />
-              Int./Ext.
-            </p>
-          </div>
-
-          <p className="text-red-500 text-6xl font-black">
-            400$
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    {/* PICKUP */}
-    <div className="bg-[#050505] border border-[#161616] rounded-[32px] p-6 shadow-[0_0_40px_rgba(255,0,0,0.06)]">
-
-      <h4 className="text-center text-4xl font-black uppercase mb-6">
-        Pickup / 7 Passagers
-      </h4>
-
-      <img
-        src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop"
-        alt="Pickup"
-        className="w-full h-[320px] object-cover rounded-[26px] mb-8"
-      />
-
-      <div className="space-y-6">
-
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
-
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🧼
-            </div>
-
-            <p className="uppercase font-black text-3xl leading-tight">
-              Intérieur
-              <br />
-              Premium
-            </p>
-          </div>
-
-          <p className="text-red-500 text-6xl font-black">
-            250$
-          </p>
-        </div>
-
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
-
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🚘
-            </div>
-
-            <p className="uppercase font-black text-3xl leading-tight">
-              Extérieur
-              <br />
-              Premium
-            </p>
-          </div>
-
-          <p className="text-red-500 text-6xl font-black">
-            250$
-          </p>
-        </div>
-
-        <div className="bg-black border border-[#1b1b1b] rounded-[28px] px-7 py-6 flex items-center justify-between">
-
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-[#111111] flex items-center justify-center text-3xl">
-              🎁
-            </div>
-
-            <p className="uppercase font-black text-3xl leading-tight">
-              Package
-              <br />
-              Int./Ext.
-            </p>
-          </div>
-
-          <p className="text-red-500 text-6xl font-black">
-            440$
-          </p>
-        </div>
-
-      </div>
-    </div>
-
+    ))}
   </div>
 
   <div className="text-center mt-16">
@@ -383,7 +264,6 @@ export default function ALAutoDetail() {
   </div>
 
 </section>
-
       </section>
     
       {/* ENTRETIEN */}
