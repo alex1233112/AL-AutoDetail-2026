@@ -124,33 +124,111 @@ export default function ALAutoDetail() {
           </h3>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-  {[
-    ['Intérieur Premium Sedan', '220$'],
-    ['Extérieur Premium Sedan', '220$'],
-    ['Intérieur Premium VUS', '230$'],
-    ['Extérieur Premium VUS', '230$'],
-    ['Intérieur Premium Pickup / 7 passagers', '250$'],
-    ['Extérieur Premium Pickup / 7 passagers', '250$'],
-    ['Int/ext. Premium Sedan', '380$'],
-    ['Int/ext. Premium VUS', '400$'],
-    ['Int/ext. Premium Pickup / 7 passagers', '440$'],
-  ].map((item, index) => (
-    <div
-      key={index}
-      className="bg-zinc-950 border border-zinc-800 hover:border-red-600/60 transition rounded-xl px-4 py-3"
-    >
-      <div className="flex items-center justify-between gap-4">
-        <h4 className="text-sm font-semibold text-white leading-snug">
-          {item[0]}
-        </h4>
+       {/* PRIX PAR VÉHICULE */}
+<div className="grid lg:grid-cols-3 gap-8">
 
-        <p className="text-lg font-bold text-red-500 whitespace-nowrap">
-  {item[1]}
-</p>
+  {/* SEDAN */}
+  <div className="bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
+    <img
+      src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop"
+      alt="Sedan"
+      className="h-56 w-full object-cover"
+    />
+
+    <div className="p-6">
+      <h4 className="text-3xl font-black text-center mb-6 text-white">
+        SEDAN
+      </h4>
+
+      <div className="space-y-4">
+
+        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Intérieur Premium</p>
+          <p className="text-red-500 text-2xl font-black">220$</p>
+        </div>
+
+        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Extérieur Premium</p>
+          <p className="text-red-500 text-2xl font-black">220$</p>
+        </div>
+
+        <div className="flex items-center justify-between bg-black border border-red-700 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Package Int./Ext.</p>
+          <p className="text-red-500 text-2xl font-black">380$</p>
+        </div>
+
       </div>
     </div>
-  ))}
+  </div>
+
+  {/* VUS */}
+  <div className="bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
+    <img
+      src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop"
+      alt="VUS"
+      className="h-56 w-full object-cover"
+    />
+
+    <div className="p-6">
+      <h4 className="text-3xl font-black text-center mb-6 text-white">
+        VUS
+      </h4>
+
+      <div className="space-y-4">
+
+        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Intérieur Premium</p>
+          <p className="text-red-500 text-2xl font-black">230$</p>
+        </div>
+
+        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Extérieur Premium</p>
+          <p className="text-red-500 text-2xl font-black">230$</p>
+        </div>
+
+        <div className="flex items-center justify-between bg-black border border-red-700 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Package Int./Ext.</p>
+          <p className="text-red-500 text-2xl font-black">400$</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {/* PICKUP */}
+  <div className="bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
+    <img
+      src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop"
+      alt="Pickup"
+      className="h-56 w-full object-cover"
+    />
+
+    <div className="p-6">
+      <h4 className="text-3xl font-black text-center mb-6 text-white">
+        PICKUP / 7 PASSAGERS
+      </h4>
+
+      <div className="space-y-4">
+
+        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Intérieur Premium</p>
+          <p className="text-red-500 text-2xl font-black">250$</p>
+        </div>
+
+        <div className="flex items-center justify-between bg-black border border-zinc-800 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Extérieur Premium</p>
+          <p className="text-red-500 text-2xl font-black">250$</p>
+        </div>
+
+        <div className="flex items-center justify-between bg-black border border-red-700 rounded-2xl px-5 py-4">
+          <p className="font-semibold">Package Int./Ext.</p>
+          <p className="text-red-500 text-2xl font-black">440$</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>
 
       </section>
