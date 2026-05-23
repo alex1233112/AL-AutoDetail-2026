@@ -145,9 +145,9 @@ export default function ALAutoDetail() {
           {item[0]}
         </h4>
 
-        <p className="text-2xl font-black text-red-500 whitespace-nowrap">
-          {item[1]}
-        </p>
+        <p className="text-xl font-bold text-red-500 whitespace-nowrap tracking-wide">
+  {item[1]}
+</p>
       </div>
     </div>
   ))}
