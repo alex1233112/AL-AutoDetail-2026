@@ -3,11 +3,11 @@
 
   <div className="text-center mb-16">
     <p className="text-red-500 uppercase tracking-[6px] mb-4 font-semibold">
-      NOS FORFAITS
+      NOS SERVICES
     </p>
 
     <h3 className="text-5xl md:text-7xl font-black uppercase">
-      TARIFS PREMIUM
+      L’EXCELLENCE À CHAQUE ÉTAPE
     </h3>
   </div>
 
@@ -17,7 +17,7 @@
       {
         title: 'SEDAN',
         image:
-          'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1400&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1400&auto=format&fit=crop',
         interior: '220$',
         exterior: '220$',
         package: '380$',
@@ -41,10 +41,10 @@
     ].map((car, index) => (
       <div
         key={index}
-        className="bg-black border border-zinc-800 rounded-[34px] p-5 shadow-2xl"
+        className="bg-black border border-zinc-800 rounded-[34px] p-5"
       >
 
-        <h4 className="text-center text-4xl font-black uppercase mb-6">
+        <h4 className="text-center text-5xl font-black uppercase mb-6">
           {car.title}
         </h4>
 
@@ -119,7 +119,5 @@
         </div>
       </div>
     ))}
-
   </div>
-
 </section>
