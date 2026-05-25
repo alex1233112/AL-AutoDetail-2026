@@ -13,7 +13,7 @@ export default function Home() {
   const packages = [
     {
       title: 'INTÉRIEUR PREMIUM',
-      price: 'À partir de 180$',
+      price: 'À partir de 220$',
       details: [
         'Aspiration complète',
         'Nettoyage des sièges',
@@ -22,8 +22,8 @@ export default function Home() {
       ],
     },
     {
-      title: 'EXTÉRIEUR SHOWROOM',
-      price: 'À partir de 120$',
+      title: 'EXTÉRIEUR PRÉMIUM',
+      price: 'À partir de 220$',
       details: [
         'Lavage premium',
         'Décontamination',
@@ -33,12 +33,12 @@ export default function Home() {
     },
     {
       title: 'DETAIL COMPLET',
-      price: 'À partir de 300$',
+      price: 'À partir de 380$',
       details: [
         'Intérieur + extérieur',
-        'Polissage léger',
-        'Protection premium',
-        'Résultat showroom',
+        'Décontamination',
+        'Protection céramique',
+        'Les prix peuvent variés selon le vehicule',
       ],
     },
   ]
