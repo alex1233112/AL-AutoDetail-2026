@@ -49,26 +49,26 @@ export default function Home() {
 
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <img
-              src="/logo.png"
-              alt="logo"
-              className="w-20 object-contain"
-            />
+  <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
-            <div>
-              <h1 className="text-3xl font-black uppercase leading-none">
-                AL <span className="text-red-600">AutoDetail</span>
-              </h1>
+    <div className="flex items-center gap-4">
+      <img
+        src="/logo.png"
+        alt="AL Auto Detailing"
+        className="h-14 w-auto"
+      />
 
-              <p className="uppercase text-xs tracking-[0.45em] text-gray-400 mt-2">
-                Detailing Mobile Premium
-              </p>
-            </div>
-          </div>
+      <div>
+        <h1 className="text-3xl font-black uppercase">
+          AL <span className="text-red-600">AUTO</span>
+        </h1>
 
-          <div className="hidden md:flex items-center gap-10 uppercase text-sm font-bold tracking-wide">
+        <p className="text-xs tracking-[0.4em] uppercase text-gray-400">
+          DETAILING
+        </p>
+      </div>
+    </div>
+<div className="hidden md:flex items-center gap-10 uppercase text-sm font-bold tracking-wide">
             <a href="#services" className="hover:text-red-500 transition">
               Services
             </a>
