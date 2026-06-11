@@ -1,10 +1,10 @@
 'use client'
 
 import {
-  MapPin,
-  Phone,
   Sparkles,
   ShieldCheck,
+  MapPin,
+  Phone,
   Calendar,
   Star,
   Car,
@@ -14,128 +14,119 @@ export default function Home() {
 
   const services = [
     {
-      title: 'Intérieur Premium',
-      image: 'https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=1200',
-      desc: 'Nettoyage complet intérieur : sièges, tapis, plastique, cuir et désinfection.'
+      title: 'Interior Detail Luxury',
+      image: 'https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=1400',
+      desc: 'Deep cleaning intérieur complet niveau showroom.'
     },
     {
-      title: 'Extérieur Shine',
-      image: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1200',
-      desc: 'Lavage complet extérieur, jantes, mousse active et finition brillante.'
+      title: 'Exterior Signature Wash',
+      image: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1400',
+      desc: 'Lavage premium avec finition gloss et protection.'
     },
     {
-      title: 'Polissage',
-      image: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=1200',
-      desc: 'Correction de peinture et élimination des micro-rayures.'
+      title: 'Paint Correction',
+      image: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=1400',
+      desc: 'Correction de peinture pour finition miroir.'
     },
     {
-      title: 'Céramique',
-      image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200',
-      desc: 'Protection longue durée avec effet miroir et hydrophobe.'
+      title: 'Ceramic Coating',
+      image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400',
+      desc: 'Protection hydrophobe longue durée premium.'
     }
   ]
 
   const pricing = [
-    { title: 'Intérieur Detail', price: '120$', desc: 'Nettoyage complet intérieur' },
-    { title: 'Extérieur Detail', price: '100$', desc: 'Lavage extérieur premium' },
-    { title: 'Premium (Int + Ext)', price: '180$', desc: 'Forfait complet véhicule' },
-    { title: 'Polissage', price: '180$', desc: 'Correction de peinture' },
-    { title: 'Céramique', price: '250$+', desc: 'Protection longue durée' },
-    { title: 'Maintenance', price: '100$ - 160$', desc: 'Service régulier mobile' },
+    { title: 'Interior Detail', price: '120$', desc: 'Deep interior cleaning' },
+    { title: 'Exterior Detail', price: '100$', desc: 'Premium exterior wash' },
+    { title: 'Full Package', price: '180$', desc: 'Interior + Exterior complete' },
+    { title: 'Paint Correction', price: '180$', desc: 'Scratch removal & polish' },
+    { title: 'Ceramic Coating', price: '250$+', desc: 'Long-term protection' },
+    { title: 'Maintenance Plan', price: '100$ - 160$', desc: 'Regular mobile service' },
   ]
 
   return (
     <main className="bg-black text-white">
 
-      {/* NAVBAR */}
-      <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      {/* HERO LUXE */}
+      <section className="h-screen relative flex items-center justify-center text-center px-6">
 
-          <div className="flex items-center gap-3">
-            <Car className="text-red-600" />
-            <span className="font-black text-xl">AL AUTO DETAILING</span>
-          </div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black" />
 
-          <a
-            href="https://calendly.com/alautodetail88"
-            className="bg-red-600 px-5 py-2 rounded-xl font-bold"
-          >
-            Réserver
-          </a>
+        <div className="relative max-w-4xl">
 
-        </div>
-      </header>
+          <p className="tracking-[0.4em] text-gray-400 uppercase mb-6">
+            Luxury Mobile Detailing
+          </p>
 
-      {/* HERO */}
-      <section className="h-screen flex items-center justify-center text-center px-6 relative">
-
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000')] bg-cover bg-center opacity-30" />
-        <div className="absolute inset-0 bg-black/80" />
-
-        <div className="relative max-w-3xl">
-
-          <h1 className="text-6xl md:text-7xl font-black uppercase mb-6">
-            DETALING
+          <h1 className="text-6xl md:text-8xl font-black uppercase leading-none mb-6">
+            AL AUTO
             <br />
-            <span className="text-red-600">MOBILE PREMIUM</span>
+            <span className="text-red-600">LUXURY DETAIL</span>
           </h1>
 
-          <p className="text-lg text-gray-300 mb-8">
-            Service de detailing automobile à domicile dans les Laurentides.
-            Résultat showroom garanti à chaque service.
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+            Service de detailing haut de gamme à domicile.
+            Chaque véhicule traité comme une pièce d’exception.
           </p>
 
           <a
             href="https://calendly.com/alautodetail88"
-            className="bg-red-600 px-8 py-4 rounded-xl font-bold"
+            className="bg-red-600 px-10 py-5 rounded-xl font-black tracking-wide"
           >
-            Réserver maintenant
+            BOOK YOUR APPOINTMENT
           </a>
 
-          <div className="mt-8 text-gray-400 space-y-1">
+          <div className="mt-10 flex flex-col gap-2 text-gray-400 text-sm">
             <p>📍 Blainville & Laurentides</p>
+            <p>🚗 Mobile Premium Service</p>
             <p>📞 450-803-4784</p>
-            <p>🚗 Service 100% mobile</p>
           </div>
 
         </div>
       </section>
 
-      {/* STATS */}
+      {/* TRUST BAR */}
       <section className="py-16 border-y border-white/10">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-3 text-center gap-8">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 text-center gap-10">
 
           <div>
-            <Star className="mx-auto text-red-500 mb-2" />
-            <p className="font-bold">Service premium</p>
+            <Star className="mx-auto text-red-500 mb-3" />
+            <p className="text-gray-300">Premium Quality Finish</p>
           </div>
 
           <div>
-            <ShieldCheck className="mx-auto text-red-500 mb-2" />
-            <p className="font-bold">Travail garanti</p>
+            <ShieldCheck className="mx-auto text-red-500 mb-3" />
+            <p className="text-gray-300">Guaranteed Satisfaction</p>
           </div>
 
           <div>
-            <MapPin className="mx-auto text-red-500 mb-2" />
-            <p className="font-bold">Déplacement inclus</p>
+            <MapPin className="mx-auto text-red-500 mb-3" />
+            <p className="text-gray-300">Mobile Service Included</p>
           </div>
 
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
+      {/* SERVICES LUXE */}
+      <section className="py-28 max-w-7xl mx-auto px-6">
 
-        <h2 className="text-center text-5xl font-black mb-16 uppercase">
-          Nos Services
+        <h2 className="text-center text-5xl font-black uppercase mb-16">
+          Signature Services
         </h2>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
 
           {services.map((s) => (
-            <div key={s.title} className="bg-zinc-900 rounded-2xl overflow-hidden border border-white/10">
+            <div
+              key={s.title}
+              className="group bg-zinc-950 border border-white/10 rounded-2xl overflow-hidden hover:border-red-600 transition"
+            >
 
-              <img src={s.image} className="h-56 w-full object-cover" />
+              <img
+                src={s.image}
+                className="h-60 w-full object-cover group-hover:scale-105 transition duration-500"
+              />
 
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{s.title}</h3>
@@ -148,51 +139,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY US */}
+      {/* EXPERIENCE SECTION */}
       <section className="py-24 bg-zinc-950 text-center px-6">
 
-        <h2 className="text-5xl font-black mb-12 uppercase">
-          Pourquoi nous choisir
+        <h2 className="text-5xl font-black uppercase mb-6">
+          Automotive Excellence
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-gray-300">
+        <p className="text-gray-400 max-w-2xl mx-auto">
+          We don’t just clean vehicles — we restore, protect and elevate them to showroom condition.
+        </p>
 
-          <div>
-            <Sparkles className="mx-auto text-red-500 mb-3" />
-            Produits haut de gamme
-          </div>
-
-          <div>
-            <ShieldCheck className="mx-auto text-red-500 mb-3" />
-            Résultats garantis
-          </div>
-
-          <div>
-            <Calendar className="mx-auto text-red-500 mb-3" />
-            Disponibilité rapide
-          </div>
-
-        </div>
       </section>
 
-      {/* PRICING (BOTTOM ONLY) */}
-      <section className="py-24 border-t border-white/10">
+      {/* PRICING LUXE */}
+      <section className="py-28 border-t border-white/10">
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-center text-5xl font-black mb-16 uppercase">
-            Prix & Forfaits
+          <h2 className="text-center text-5xl font-black uppercase mb-16">
+            Investment
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
 
             {pricing.map((p) => (
-              <div key={p.title} className="bg-zinc-900 border border-white/10 rounded-2xl p-8 text-center">
+              <div
+                key={p.title}
+                className="bg-zinc-950 border border-white/10 rounded-2xl p-10 text-center hover:border-red-600 transition"
+              >
 
                 <h3 className="text-xl font-bold mb-2">{p.title}</h3>
                 <p className="text-gray-400 text-sm mb-6">{p.desc}</p>
 
-                <p className="text-3xl font-black text-red-500">{p.price}</p>
+                <p className="text-4xl font-black text-red-500">{p.price}</p>
 
               </div>
             ))}
@@ -200,28 +180,27 @@ export default function Home() {
           </div>
 
         </div>
-
       </section>
 
-      {/* CTA FINAL */}
-      <section className="py-24 text-center">
+      {/* FINAL CTA */}
+      <section className="py-28 text-center">
 
-        <h2 className="text-5xl font-black mb-6 uppercase">
-          Réserve ton service maintenant
+        <h2 className="text-5xl font-black uppercase mb-6">
+          Elevate Your Vehicle Today
         </h2>
 
         <a
           href="https://calendly.com/alautodetail88"
-          className="bg-red-600 px-10 py-5 rounded-xl font-black"
+          className="bg-red-600 px-12 py-6 rounded-xl font-black text-lg"
         >
-          Ouvrir Calendly
+          BOOK NOW
         </a>
 
       </section>
 
       {/* FOOTER */}
       <footer className="py-10 border-t border-white/10 text-center text-gray-500">
-        © 2026 AL Auto Detailing — Tous droits réservés
+        © 2026 AL Auto Luxury Detailing
       </footer>
 
     </main>
