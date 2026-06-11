@@ -26,16 +26,16 @@ export default function Home() {
         'Lavage premium, décontamination et finition showroom.',
     },
     {
-      title: 'Polissage',
-      image:
-        'https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=1200',
-      description:
-        'Correction de peinture et retrait des micro-rayures.',
-    },
+  title: 'Polissage',
+  image:
+    'https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=1200',
+  description:
+    'Correction de peinture et élimination des micro-rayures.',
+},
     {
       title: 'Traitement Céramique',
       image:
-        'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200',
+        'https://images.unsplash.com/photo-1511919884226-fd3cad34687c',
       description:
         'Protection durable contre les UV, l’eau et les contaminants.',
     },
@@ -58,7 +58,67 @@ export default function Home() {
 
   return (
     <main className="bg-black text-white">
+{/* PRIX */}
+<section className="py-24 bg-zinc-950">
+  <div className="max-w-7xl mx-auto px-6">
 
+    <h2 className="text-center text-6xl font-black uppercase mb-16">
+      Nos Forfaits
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {/* INTÉRIEUR */}
+      <div className="bg-black border border-white/10 rounded-3xl overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1600661653561-629509216228"
+          className="h-64 w-full object-cover"
+        />
+
+        <div className="p-8">
+          <h3 className="text-3xl font-black mb-3">Intérieur</h3>
+          <p className="text-gray-400 mb-6">
+            Nettoyage complet intérieur : sièges, tapis, plastiques, aspiration profonde.
+          </p>
+          <p className="text-red-500 text-3xl font-black">À partir de 120$</p>
+        </div>
+      </div>
+
+      {/* EXTÉRIEUR */}
+      <div className="bg-black border border-white/10 rounded-3xl overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9"
+          className="h-64 w-full object-cover"
+        />
+
+        <div className="p-8">
+          <h3 className="text-3xl font-black mb-3">Extérieur</h3>
+          <p className="text-gray-400 mb-6">
+            Lavage premium, jantes, décontamination et finition brillante.
+          </p>
+          <p className="text-red-500 text-3xl font-black">À partir de 100$</p>
+        </div>
+      </div>
+
+      {/* PREMIUM */}
+      <div className="bg-red-600 text-black rounded-3xl overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200"
+          className="h-64 w-full object-cover"
+        />
+
+        <div className="p-8">
+          <h3 className="text-3xl font-black mb-3">Premium (Int + Ext)</h3>
+          <p className="text-black/80 mb-6">
+            Forfait complet intérieur + extérieur pour un résultat showroom.
+          </p>
+          <p className="text-black text-3xl font-black">À partir de 180$</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
       {/* NAVBAR */}
 
       <header className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur border-b border-white/10">
@@ -274,44 +334,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AVIS */}
-
-      <section className="py-24 bg-zinc-950">
-
-        <div className="max-w-7xl mx-auto px-6">
-
-          <h2 className="text-center text-6xl font-black uppercase mb-16">
-            Avis Clients
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-
-            {['Incroyable', 'Professionnel', 'Résultat parfait'].map(
-              (review) => (
-                <div
-                  key={review}
-                  className="bg-black p-8 rounded-3xl border border-white/10"
-                >
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="text-red-500 fill-red-500"
-                      />
-                    ))}
-                  </div>
-
-                  <p className="text-gray-300">
-                    {review}
-                  </p>
-                </div>
-              )
-            )}
-
-          </div>
-
-        </div>
-      </section>
+      
 
       {/* CTA */}
 
