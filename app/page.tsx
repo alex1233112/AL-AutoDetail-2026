@@ -1,271 +1,198 @@
-"use client";
+"use client"
 
-import { useEffect } from "react";
+import { useEffect } from "react"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
-export default function Page() {
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls, Environment } from "@react-three/drei"
+
+function Car() {
+  return (
+    <mesh rotation={[0, 1, 0]}>
+      <boxGeometry args={[2, 0.5, 4]} />
+      <meshStandardMaterial color="red" metalness={0.8} roughness={0.2} />
+    </mesh>
+  )
+}
+
+export default function Home() {
   useEffect(() => {
-    const navbar = document.getElementById("navbar");
-
-    const onScroll = () => {
-      if (!navbar) return;
-      navbar.classList.toggle("scrolled", window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", onScroll);
-
-    const elements = document.querySelectorAll(".reveal");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("active");
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    elements.forEach((el) => observer.observe(el));
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    AOS.init({ duration: 1000, once: true })
+  }, [])
 
   const services = [
-    {
-      title: "Nettoyage complet",
-      desc: "Intérieur + extérieur professionnel",
-      img: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2",
-      price: "À partir de 120$",
-    },
-    {
-      title: "Polissage",
-      desc: "Correction peinture + brillance miroir",
-      img: "https://images.unsplash.com/photo-1603386329225-868f9b1ee6d4",
-      price: "À partir de 180$",
-    },
-    {
-      title: "Céramique",
-      desc: "Protection longue durée premium",
-      img: "https://images.unsplash.com/photo-1613214149922-f1809c99b414",
-      price: "À partir de 350$",
-    },
-    {
-      title: "Intérieur luxe",
-      desc: "Cuir, tapis, finition détaillée",
-      img: "https://images.unsplash.com/photo-1613214150351-0f2c8a5a8d5d",
-      price: "À partir de 140$",
-    },
-  ];
+    { title: "Exterior Wash", price: "40$", img: "/exterieur.jpg" },
+    { title: "Interior Detail", price: "60$", img: "/interieur.jpg" },
+    { title: "Full Detail", price: "120$", img: "/fulldetail.jpg" },
+  ]
 
   return (
-    <main className="page">
-
-      {/* NAVBAR */}
-      <header id="navbar" className="navbar">
-        <h1>AL AUTO DETAIL</h1>
-        <nav>
-          <a href="#services">Services</a>
-          <a href="#prix">Prix</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+    <main className="bg-black text-white overflow-hidden">
 
       {/* HERO */}
-      <section className="hero">
-        <div className="hero-content reveal">
-          <h1>RED PREMIUM DETAILING</h1>
-          <p>Finition luxe pour voitures sport & exotic</p>
-          <a href="#contact" className="btn">Réserver</a>
+      <section className="h-screen flex flex-col items-center justify-center relative text-center">
+
+        <div className="absolute inset-0 bg-[url('/car-bg.jpg')] bg-cover bg-center opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black" />
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-6xl font-bold tracking-widest z-10"
+        >
+          AL AUTO DETAIL
+        </motion.h1>
+
+        <p className="text-red-500 mt-3 z-10">
+          FERRARI EXPERIENCE DETAILING
+        </p>
+
+        <div className="mt-6 z-10">
+          <Image src="/logo.png" width={140} height={140} alt="logo" />
         </div>
-      </section>
 
-      {/* SERVICES */}
-      <section id="services">
-        <h2 className="title reveal">Nos Services</h2>
-
-        <div className="grid">
-          {services.map((s, i) => (
-            <div className="card reveal" key={i}>
-              <img src={s.img} alt={s.title} />
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-              <span className="price">{s.price}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PRIX SERVICES GLOBAL */}
-      <section id="prix">
-        <h2 className="title reveal">Packages Prix</h2>
-
-        <div className="grid">
-          {[
-            ["Sedan", "120$ - 180$"],
-            ["SUV", "150$ - 220$"],
-            ["Sport / Exotic", "200$ - 400$"],
-          ].map((p, i) => (
-            <div className="card reveal" key={i}>
-              <h3>{p[0]}</h3>
-              <p className="price">{p[1]}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section id="contact" className="contact">
-        <h2 className="title reveal">Contact</h2>
-        <p>📍 Saint-Jérôme, QC</p>
-        <p>📞 000-000-0000</p>
-
-        <a className="btn" href="mailto:contact@alautodetail.com">
-          Envoyer un email
+        <a
+          href="#car"
+          className="mt-8 bg-red-600 px-8 py-3 rounded-full font-bold hover:scale-105 transition z-10"
+        >
+          Voir expérience 3D
         </a>
       </section>
 
-      {/* STYLE */}
-      <style jsx>{`
-        .page {
-          background: #0a0a0a;
-          color: white;
-        }
+      {/* 3D CAR SECTION */}
+      <section id="car" className="py-32 bg-black text-center">
 
-        /* NAVBAR */
-        .navbar {
-          position: fixed;
-          width: 100%;
-          top: 0;
-          display: flex;
-          justify-content: space-between;
-          padding: 18px 40px;
-          background: rgba(0,0,0,0.4);
-          backdrop-filter: blur(12px);
-          transition: 0.3s;
-          z-index: 1000;
-        }
+        <h2 className="text-4xl font-bold mb-10">
+          Showroom 3D
+        </h2>
 
-        .navbar.scrolled {
-          background: rgba(0,0,0,0.95);
-          border-bottom: 1px solid #330000;
-        }
+        <div className="h-[500px] w-full">
+          <Canvas camera={{ position: [5, 2, 5] }}>
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[5, 5, 5]} />
 
-        .navbar h1 {
-          color: #ff1e1e;
-          letter-spacing: 2px;
-        }
+            <Car />
 
-        .navbar a {
-          color: white;
-          margin-left: 20px;
-          text-decoration: none;
-        }
+            <OrbitControls autoRotate autoRotateSpeed={2} enableZoom />
+            <Environment preset="city" />
+          </Canvas>
+        </div>
 
-        .navbar a:hover {
-          color: #ff1e1e;
-        }
+        <p className="text-gray-400 mt-4">
+          Tourne la voiture avec ta souris
+        </p>
+      </section>
 
-        /* HERO */
-        .hero {
-          height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          background: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70") center/cover;
-          position: relative;
-        }
+      {/* SERVICES */}
+      <section className="py-32 px-6">
 
-        .hero::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: rgba(0,0,0,0.65);
-        }
+        <h2 className="text-4xl text-center font-bold mb-16">
+          Nos Services
+        </h2>
 
-        .hero-content {
-          position: relative;
-          z-index: 2;
-        }
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-        .hero h1 {
-          font-size: 60px;
-          color: #ff1e1e;
-        }
+          {services.map((s, i) => (
+            <div
+              key={i}
+              data-aos="fade-up"
+              className="bg-zinc-900 rounded-2xl overflow-hidden hover:scale-105 transition border border-red-900"
+            >
+              <Image src={s.img} width={600} height={400} alt={s.title} />
+              <div className="p-5">
+                <h3 className="text-xl font-bold">{s.title}</h3>
+                <p className="text-red-500 font-bold">{s.price}</p>
+              </div>
+            </div>
+          ))}
 
-        .btn {
-          display: inline-block;
-          margin-top: 20px;
-          padding: 12px 25px;
-          background: #ff1e1e;
-          color: white;
-          font-weight: bold;
-          border-radius: 8px;
-        }
+        </div>
+      </section>
 
-        section {
-          padding: 100px 20px;
-          max-width: 1200px;
-          margin: auto;
-        }
+      {/* MAINTENANCE */}
+      <section className="py-24 bg-zinc-950 text-center px-6">
 
-        .title {
-          text-align: center;
-          font-size: 34px;
-          color: #ff1e1e;
-          margin-bottom: 40px;
-        }
+        <h2 className="text-4xl font-bold mb-6">
+          Maintenance Premium
+        </h2>
 
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-          gap: 20px;
-        }
+        <div className="max-w-xl mx-auto border border-red-900 p-6 rounded-xl bg-black">
 
-        .card {
-          background: #141414;
-          border: 1px solid #222;
-          padding: 20px;
-          border-radius: 12px;
-          transition: 0.3s;
-          overflow: hidden;
-        }
+          <p className="text-gray-300">
+            Gardez votre voiture toujours parfaite.
+          </p>
 
-        .card:hover {
-          transform: translateY(-10px);
-          border-color: #ff1e1e;
-        }
+          <ul className="mt-6 space-y-2 text-gray-300">
+            <li>💎 100$ / semaine</li>
+            <li>💎 130$ / 2 semaines</li>
+            <li>💎 160$ / mois</li>
+          </ul>
 
-        .card img {
-          width: 100%;
-          height: 160px;
-          object-fit: cover;
-          border-radius: 10px;
-          margin-bottom: 10px;
-        }
+        </div>
+      </section>
 
-        .price {
-          display: block;
-          margin-top: 10px;
-          font-weight: bold;
-          color: #fff;
-        }
+      {/* GALLERY */}
+      <section className="py-32 px-6">
 
-        /* ANIMATION */
-        .reveal {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: 0.8s ease;
-        }
+        <h2 className="text-4xl text-center font-bold mb-12">
+          Résultats
+        </h2>
 
-        .reveal.active {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        <div className="grid md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+          <Image src="/g1.jpg" width={500} height={400} alt="" />
+          <Image src="/g2.jpg" width={500} height={400} alt="" />
+          <Image src="/g3.jpg" width={500} height={400} alt="" />
+        </div>
 
-        .contact {
-          text-align: center;
-        }
-      `}</style>
+      </section>
+
+      {/* BOOKING */}
+      <section className="py-32 bg-black px-6">
+
+        <h2 className="text-4xl text-center font-bold mb-10">
+          Réservation
+        </h2>
+
+        <form className="max-w-xl mx-auto space-y-4">
+
+          <input className="w-full p-4 bg-zinc-900 border border-gray-700 rounded"
+            placeholder="Nom complet" />
+
+          <input className="w-full p-4 bg-zinc-900 border border-gray-700 rounded"
+            placeholder="Téléphone" />
+
+          <select className="w-full p-4 bg-zinc-900 border border-gray-700 rounded">
+            <option>Exterior Wash</option>
+            <option>Interior Detail</option>
+            <option>Full Detail</option>
+          </select>
+
+          <textarea className="w-full p-4 bg-zinc-900 border border-gray-700 rounded"
+            placeholder="Notes client" />
+
+          <button className="w-full bg-red-600 py-4 font-bold rounded hover:scale-105 transition">
+            Envoyer
+          </button>
+
+        </form>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-10 text-center text-gray-500 border-t border-zinc-800">
+        AL Auto Detail © 2026 - Saint-Jérôme
+      </footer>
+
+      {/* WHATSAPP */}
+      <a
+        href="https://wa.me/14501234567?text=Je veux réserver un detailing"
+        className="fixed bottom-6 right-6 bg-red-600 px-6 py-3 rounded-full font-bold hover:scale-110 transition"
+      >
+        WhatsApp
+      </a>
+
     </main>
-  );
+  )
 }
