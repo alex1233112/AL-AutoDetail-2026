@@ -6,26 +6,19 @@ export default function Page() {
   useEffect(() => {
     const navbar = document.getElementById("navbar");
 
-    const handleScroll = () => {
+    const onScroll = () => {
       if (!navbar) return;
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll);
 
-    // Animation scroll
     const elements = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("active");
         });
       },
       { threshold: 0.15 }
@@ -33,13 +26,38 @@ export default function Page() {
 
     elements.forEach((el) => observer.observe(el));
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const services = [
+    {
+      title: "Nettoyage complet",
+      desc: "Intérieur + extérieur professionnel",
+      img: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2",
+      price: "À partir de 120$",
+    },
+    {
+      title: "Polissage",
+      desc: "Correction peinture + brillance miroir",
+      img: "https://images.unsplash.com/photo-1603386329225-868f9b1ee6d4",
+      price: "À partir de 180$",
+    },
+    {
+      title: "Céramique",
+      desc: "Protection longue durée premium",
+      img: "https://images.unsplash.com/photo-1613214149922-f1809c99b414",
+      price: "À partir de 350$",
+    },
+    {
+      title: "Intérieur luxe",
+      desc: "Cuir, tapis, finition détaillée",
+      img: "https://images.unsplash.com/photo-1613214150351-0f2c8a5a8d5d",
+      price: "À partir de 140$",
+    },
+  ];
+
   return (
-    <main className="bg-black text-white overflow-x-hidden">
+    <main className="page">
 
       {/* NAVBAR */}
       <header id="navbar" className="navbar">
@@ -47,7 +65,6 @@ export default function Page() {
         <nav>
           <a href="#services">Services</a>
           <a href="#prix">Prix</a>
-          <a href="#plan">Plans</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -55,8 +72,8 @@ export default function Page() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-content reveal">
-          <h1>PERFECTION DETAILING</h1>
-          <p>Service premium pour voitures sport & luxe</p>
+          <h1>RED PREMIUM DETAILING</h1>
+          <p>Finition luxe pour voitures sport & exotic</p>
           <a href="#contact" className="btn">Réserver</a>
         </div>
       </section>
@@ -66,51 +83,30 @@ export default function Page() {
         <h2 className="title reveal">Nos Services</h2>
 
         <div className="grid">
-          {[
-            ["Nettoyage complet", "Intérieur + extérieur professionnel"],
-            ["Polissage", "Correction peinture & brillance miroir"],
-            ["Céramique", "Protection longue durée premium"],
-            ["Intérieur luxe", "Cuir, tapis, plastique détaillé"],
-          ].map((item, i) => (
+          {services.map((s, i) => (
             <div className="card reveal" key={i}>
-              <h3>{item[0]}</h3>
-              <p>{item[1]}</p>
+              <img src={s.img} alt={s.title} />
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+              <span className="price">{s.price}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* PRIX */}
+      {/* PRIX SERVICES GLOBAL */}
       <section id="prix">
-        <h2 className="title reveal">Prix</h2>
+        <h2 className="title reveal">Packages Prix</h2>
 
         <div className="grid">
           {[
-            ["Sedan", "120$+"],
-            ["SUV", "150$+"],
-            ["Sport / Luxe", "200$+"],
-          ].map((item, i) => (
+            ["Sedan", "120$ - 180$"],
+            ["SUV", "150$ - 220$"],
+            ["Sport / Exotic", "200$ - 400$"],
+          ].map((p, i) => (
             <div className="card reveal" key={i}>
-              <h3>{item[0]}</h3>
-              <p className="price">{item[1]}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PLAN */}
-      <section id="plan">
-        <h2 className="title reveal">Plans Maintenance</h2>
-
-        <div className="grid">
-          {[
-            ["Hebdomadaire", "100$ / semaine"],
-            ["2 semaines", "130$"],
-            ["Mensuel", "160$"],
-          ].map((item, i) => (
-            <div className="card reveal" key={i}>
-              <h3>{item[0]}</h3>
-              <p className="price">{item[1]}</p>
+              <h3>{p[0]}</h3>
+              <p className="price">{p[1]}</p>
             </div>
           ))}
         </div>
@@ -129,14 +125,19 @@ export default function Page() {
 
       {/* STYLE */}
       <style jsx>{`
+        .page {
+          background: #0a0a0a;
+          color: white;
+        }
+
+        /* NAVBAR */
         .navbar {
           position: fixed;
-          top: 0;
           width: 100%;
-          padding: 18px 40px;
+          top: 0;
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          padding: 18px 40px;
           background: rgba(0,0,0,0.4);
           backdrop-filter: blur(12px);
           transition: 0.3s;
@@ -145,12 +146,11 @@ export default function Page() {
 
         .navbar.scrolled {
           background: rgba(0,0,0,0.95);
-          border-bottom: 1px solid #222;
+          border-bottom: 1px solid #330000;
         }
 
         .navbar h1 {
-          color: #d4af37;
-          font-size: 20px;
+          color: #ff1e1e;
           letter-spacing: 2px;
         }
 
@@ -158,13 +158,13 @@ export default function Page() {
           color: white;
           margin-left: 20px;
           text-decoration: none;
-          font-weight: bold;
         }
 
         .navbar a:hover {
-          color: #d4af37;
+          color: #ff1e1e;
         }
 
+        /* HERO */
         .hero {
           height: 100vh;
           display: flex;
@@ -179,7 +179,7 @@ export default function Page() {
           content: "";
           position: absolute;
           inset: 0;
-          background: rgba(0,0,0,0.6);
+          background: rgba(0,0,0,0.65);
         }
 
         .hero-content {
@@ -189,15 +189,15 @@ export default function Page() {
 
         .hero h1 {
           font-size: 60px;
-          color: #d4af37;
+          color: #ff1e1e;
         }
 
         .btn {
           display: inline-block;
           margin-top: 20px;
           padding: 12px 25px;
-          background: #d4af37;
-          color: black;
+          background: #ff1e1e;
+          color: white;
           font-weight: bold;
           border-radius: 8px;
         }
@@ -211,7 +211,7 @@ export default function Page() {
         .title {
           text-align: center;
           font-size: 34px;
-          color: #d4af37;
+          color: #ff1e1e;
           margin-bottom: 40px;
         }
 
@@ -223,24 +223,31 @@ export default function Page() {
 
         .card {
           background: #141414;
-          padding: 25px;
-          border-radius: 12px;
           border: 1px solid #222;
+          padding: 20px;
+          border-radius: 12px;
           transition: 0.3s;
+          overflow: hidden;
         }
 
         .card:hover {
-          transform: translateY(-8px);
-          border-color: #d4af37;
+          transform: translateY(-10px);
+          border-color: #ff1e1e;
+        }
+
+        .card img {
+          width: 100%;
+          height: 160px;
+          object-fit: cover;
+          border-radius: 10px;
+          margin-bottom: 10px;
         }
 
         .price {
+          display: block;
           margin-top: 10px;
           font-weight: bold;
-        }
-
-        .contact {
-          text-align: center;
+          color: #fff;
         }
 
         /* ANIMATION */
@@ -253,6 +260,10 @@ export default function Page() {
         .reveal.active {
           opacity: 1;
           transform: translateY(0);
+        }
+
+        .contact {
+          text-align: center;
         }
       `}</style>
     </main>
