@@ -59,9 +59,23 @@ export default function Home() {
       />
 
       <div>
-        <h1 className="text-3xl font-black uppercase">
-          AL <span className="text-red-600">AUTO</span>
-        </h1>
+       <div className="flex items-center gap-4">
+  <img
+    src="/Logo.png"
+    alt="AL Auto Detailing"
+    className="h-14 w-auto"
+  />
+
+  <div>
+    <h1 className="text-3xl font-black tracking-tight uppercase">
+      AL <span className="text-red-600">AUTO</span>
+    </h1>
+
+    <p className="text-xs tracking-[0.4em] uppercase text-gray-400">
+      DETAILING
+    </p>
+  </div>
+</div>
 
         <p className="text-xs tracking-[0.4em] uppercase text-gray-400">
           DETAILING
@@ -452,9 +466,17 @@ export default function Home() {
             />
 
             <div>
-              <h4 className="text-4xl font-black uppercase">
-                AL <span className="text-red-600">AUTO</span>
-              </h4>
+            <div className="flex items-center gap-4 mb-5">
+  <img
+    src="/Logo.png"
+    alt="AL Auto Detailing"
+    className="h-12 w-auto"
+  />
+
+  <h4 className="text-4xl font-black uppercase">
+    AL <span className="text-red-600">AUTO</span>
+  </h4>
+</div>
 
               <p className="text-gray-400">
                 Detailing automobile premium.
