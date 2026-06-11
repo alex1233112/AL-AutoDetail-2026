@@ -1,58 +1,84 @@
 'use client'
 
 import {
-  MapPin,
-  Phone,
+  Car,
   Sparkles,
   ShieldCheck,
+  MapPin,
   Calendar,
-  Car,
+  Phone,
 } from 'lucide-react'
 
 export default function Home() {
 
-  const services = [
+  const packages = [
     {
       title: 'Intérieur Detail',
-      image: 'https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=1200',
-      desc: 'Nettoyage complet intérieur (sièges, tapis, plastique).'
+      price: '120$',
+      image: 'https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=1400',
+      items: [
+        'Aspirateur complet',
+        'Nettoyage sièges',
+        'Plastique & vitres',
+        'Désinfection'
+      ]
     },
     {
       title: 'Extérieur Detail',
-      image: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1200',
-      desc: 'Lavage extérieur + finition brillante.'
+      price: '100$',
+      image: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1400',
+      items: [
+        'Lavage complet',
+        'Jantes nettoyées',
+        'Mousse active',
+        'Finition brillante'
+      ]
+    },
+    {
+      title: 'Premium Full',
+      price: '180$',
+      image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400',
+      items: [
+        'Intérieur complet',
+        'Extérieur complet',
+        'Finition showroom',
+        'Parfum intérieur'
+      ]
     },
     {
       title: 'Polissage',
-      image: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=1200',
-      desc: 'Correction de peinture et micro-rayures.'
+      price: '180$',
+      image: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=1400',
+      items: [
+        'Correction peinture',
+        'Micro-rayures',
+        'Brillance profonde',
+        'Rendu miroir'
+      ]
     },
     {
       title: 'Céramique',
-      image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200',
-      desc: 'Protection longue durée premium.'
+      price: '250$+',
+      image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400',
+      items: [
+        'Protection longue durée',
+        'Hydrophobe',
+        'Brillance extrême',
+        'Anti-salissure'
+      ]
     }
-  ]
-
-  const pricing = [
-    { name: 'Intérieur Detail', price: '120$' },
-    { name: 'Extérieur Detail', price: '100$' },
-    { name: 'Premium (Int + Ext)', price: '180$' },
-    { name: 'Polissage', price: '180$' },
-    { name: 'Céramique', price: '250$+' },
-    { name: 'Maintenance', price: '100$ - 160$' },
   ]
 
   return (
     <main className="bg-black text-white">
 
-      {/* HEADER SIMPLE */}
-      <header className="py-6 border-b border-white/10">
+      {/* HEADER */}
+      <header className="border-b border-white/10 py-6">
         <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
 
           <div className="flex items-center gap-3">
             <Car className="text-red-500" />
-            <span className="font-bold text-lg">AL AUTO DETAILING</span>
+            <span className="font-black text-lg">AL AUTO DETAILING</span>
           </div>
 
           <a
@@ -65,16 +91,17 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO (ESPACE CLAIR) */}
-      <section className="py-32 text-center px-6">
+      {/* HERO */}
+      <section className="py-28 text-center px-6">
 
-        <h1 className="text-5xl md:text-6xl font-black uppercase mb-6">
+        <h1 className="text-6xl font-black uppercase mb-6">
           Detailing
-          <span className="text-red-600"> Premium</span>
+          <span className="text-red-600"> Mobile Premium</span>
         </h1>
 
         <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-          Service de detailing mobile à domicile dans les Laurentides.
+          Service de detailing automobile à domicile dans les Laurentides.
+          Résultat propre, rapide et professionnel.
         </p>
 
         <a
@@ -92,46 +119,66 @@ export default function Home() {
 
       </section>
 
-      {/* ESPACE */}
-      <div className="h-24" />
+      {/* SECTION SERVICES DETAILLÉS */}
+      <section className="max-w-6xl mx-auto px-6 space-y-24">
 
-      {/* SERVICES */}
-      <section className="max-w-6xl mx-auto px-6">
-
-        <h2 className="text-4xl font-black text-center mb-16">
+        <h2 className="text-4xl font-black text-center">
           Nos Services
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        {packages.map((p, i) => (
+          <div
+            key={p.title}
+            className={`grid md:grid-cols-2 gap-10 items-center ${
+              i % 2 === 1 ? 'md:flex-row-reverse' : ''
+            }`}
+          >
 
-          {services.map((s) => (
-            <div key={s.title} className="bg-zinc-900 rounded-2xl overflow-hidden">
+            {/* IMAGE */}
+            <img
+              src={p.image}
+              className="rounded-2xl w-full h-80 object-cover"
+            />
 
-              <img src={s.image} className="h-64 w-full object-cover" />
+            {/* TEXT */}
+            <div>
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">{s.title}</h3>
-                <p className="text-gray-400">{s.desc}</p>
-              </div>
+              <h3 className="text-3xl font-black mb-2">
+                {p.title}
+              </h3>
+
+              <p className="text-red-500 text-2xl font-bold mb-4">
+                {p.price}
+              </p>
+
+              <ul className="text-gray-400 space-y-2 mb-6">
+                {p.items.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+
+              <a
+                href="https://calendly.com/alautodetail88"
+                className="bg-white text-black px-6 py-3 rounded-lg font-bold inline-block"
+              >
+                Réserver ce service
+              </a>
 
             </div>
-          ))}
 
-        </div>
+          </div>
+        ))}
 
       </section>
 
-      {/* ESPACE */}
-      <div className="h-32" />
-
-      {/* POURQUOI */}
-      <section className="text-center px-6">
+      {/* WHY US */}
+      <section className="py-28 text-center px-6">
 
         <h2 className="text-4xl font-black mb-12">
           Pourquoi nous choisir
         </h2>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-10 text-gray-400">
+        <div className="grid md:grid-cols-3 max-w-4xl mx-auto gap-10 text-gray-400">
 
           <div>
             <Sparkles className="mx-auto text-red-500 mb-3" />
@@ -140,7 +187,7 @@ export default function Home() {
 
           <div>
             <ShieldCheck className="mx-auto text-red-500 mb-3" />
-            Travail garanti
+            Satisfaction garantie
           </div>
 
           <div>
@@ -152,60 +199,25 @@ export default function Home() {
 
       </section>
 
-      {/* ESPACE */}
-      <div className="h-32" />
-
-      {/* PRIX (SECTION CLAIRE EN BAS) */}
-      <section className="bg-zinc-950 py-24">
-
-        <div className="max-w-6xl mx-auto px-6">
-
-          <h2 className="text-4xl font-black text-center mb-16">
-            Prix & Forfaits
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-
-            {pricing.map((p) => (
-              <div key={p.name} className="bg-black border border-white/10 rounded-2xl p-8 text-center">
-
-                <h3 className="text-xl font-bold mb-3">{p.name}</h3>
-
-                <p className="text-3xl font-black text-red-500">
-                  {p.price}
-                </p>
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ESPACE FINAL */}
-      <div className="h-24" />
-
       {/* CTA FINAL */}
-      <section className="text-center py-24 px-6">
+      <section className="py-28 text-center">
 
         <h2 className="text-4xl font-black mb-6">
-          Réserve ton service
+          Prêt à transformer votre véhicule ?
         </h2>
 
         <a
           href="https://calendly.com/alautodetail88"
           className="bg-red-600 px-10 py-5 rounded-xl font-bold"
         >
-          Ouvrir Calendly
+          Réserver maintenant
         </a>
 
       </section>
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-10 text-center text-gray-500">
-        © 2026 AL Auto Detailing
+        © 2026 AL Auto Detailing — Tous droits réservés
       </footer>
 
     </main>
