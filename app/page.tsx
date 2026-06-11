@@ -6,79 +6,55 @@ import {
   ShieldCheck,
   MapPin,
   Calendar,
+  Star,
   Phone,
 } from 'lucide-react'
 
 export default function Home() {
 
-  const packages = [
+  const services = [
     {
-      title: 'Intérieur Detail',
+      title: 'Intérieur Signature',
       price: '120$',
       image: 'https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=1400',
-      items: [
-        'Aspirateur complet',
-        'Nettoyage sièges',
-        'Plastique & vitres',
-        'Désinfection'
-      ]
+      desc: 'Nettoyage complet intérieur niveau showroom.'
     },
     {
-      title: 'Extérieur Detail',
+      title: 'Extérieur Premium',
       price: '100$',
       image: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1400',
-      items: [
-        'Lavage complet',
-        'Jantes nettoyées',
-        'Mousse active',
-        'Finition brillante'
-      ]
+      desc: 'Lavage extérieur + finition brillante.'
     },
     {
-      title: 'Premium Full',
+      title: 'Full Package',
       price: '180$',
       image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400',
-      items: [
-        'Intérieur complet',
-        'Extérieur complet',
-        'Finition showroom',
-        'Parfum intérieur'
-      ]
+      desc: 'Intérieur + extérieur complet premium.'
     },
     {
-      title: 'Polissage',
+      title: 'Polissage Expert',
       price: '180$',
       image: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=1400',
-      items: [
-        'Correction peinture',
-        'Micro-rayures',
-        'Brillance profonde',
-        'Rendu miroir'
-      ]
+      desc: 'Correction peinture et finition miroir.'
     },
     {
-      title: 'Céramique',
+      title: 'Céramique Protection',
       price: '250$+',
       image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400',
-      items: [
-        'Protection longue durée',
-        'Hydrophobe',
-        'Brillance extrême',
-        'Anti-salissure'
-      ]
+      desc: 'Protection longue durée hydrophobe.'
     }
   ]
 
   return (
     <main className="bg-black text-white">
 
-      {/* HEADER */}
-      <header className="border-b border-white/10 py-6">
-        <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+      {/* NAVBAR PREMIUM */}
+      <header className="fixed w-full top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
           <div className="flex items-center gap-3">
             <Car className="text-red-500" />
-            <span className="font-black text-lg">AL AUTO DETAILING</span>
+            <span className="font-black tracking-wide">AL AUTO DETAILING</span>
           </div>
 
           <a
@@ -91,116 +67,129 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="py-28 text-center px-6">
+      {/* HERO AGENCE */}
+      <section className="h-screen flex items-center justify-center text-center px-6 relative">
 
-        <h1 className="text-6xl font-black uppercase mb-6">
-          Detailing
-          <span className="text-red-600"> Mobile Premium</span>
-        </h1>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-black/85" />
 
-        <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-          Service de detailing automobile à domicile dans les Laurentides.
-          Résultat propre, rapide et professionnel.
-        </p>
+        <div className="relative max-w-4xl">
 
-        <a
-          href="https://calendly.com/alautodetail88"
-          className="bg-red-600 px-8 py-4 rounded-xl font-bold"
-        >
-          Réserver maintenant
-        </a>
+          <p className="text-gray-400 tracking-[0.3em] uppercase mb-6">
+            Mobile Detailing Agency
+          </p>
 
-        <div className="mt-10 text-gray-400 space-y-1">
-          <p>📍 Blainville & Laurentides</p>
-          <p>📞 450-803-4784</p>
-          <p>🚗 Service mobile</p>
-        </div>
+          <h1 className="text-6xl md:text-7xl font-black uppercase mb-6 leading-tight">
+            AL AUTO
+            <br />
+            <span className="text-red-600">PREMIUM DETAILING</span>
+          </h1>
 
-      </section>
+          <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
+            Service de detailing mobile haut de gamme.
+            Nous transformons votre véhicule en état showroom.
+          </p>
 
-      {/* SECTION SERVICES DETAILLÉS */}
-      <section className="max-w-6xl mx-auto px-6 space-y-24">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
-        <h2 className="text-4xl font-black text-center">
-          Nos Services
-        </h2>
+            <a
+              href="https://calendly.com/alautodetail88"
+              className="bg-red-600 px-8 py-4 rounded-xl font-bold"
+            >
+              Réserver maintenant
+            </a>
 
-        {packages.map((p, i) => (
-          <div
-            key={p.title}
-            className={`grid md:grid-cols-2 gap-10 items-center ${
-              i % 2 === 1 ? 'md:flex-row-reverse' : ''
-            }`}
-          >
-
-            {/* IMAGE */}
-            <img
-              src={p.image}
-              className="rounded-2xl w-full h-80 object-cover"
-            />
-
-            {/* TEXT */}
-            <div>
-
-              <h3 className="text-3xl font-black mb-2">
-                {p.title}
-              </h3>
-
-              <p className="text-red-500 text-2xl font-bold mb-4">
-                {p.price}
-              </p>
-
-              <ul className="text-gray-400 space-y-2 mb-6">
-                {p.items.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
-              </ul>
-
-              <a
-                href="https://calendly.com/alautodetail88"
-                className="bg-white text-black px-6 py-3 rounded-lg font-bold inline-block"
-              >
-                Réserver ce service
-              </a>
-
-            </div>
+            <a
+              href="tel:4508034784"
+              className="border border-white/20 px-8 py-4 rounded-xl font-bold"
+            >
+              Appeler
+            </a>
 
           </div>
-        ))}
 
+          <div className="mt-10 text-gray-400 text-sm space-y-1">
+            <p>📍 Blainville & Laurentides</p>
+            <p>🚗 Service mobile à domicile</p>
+          </div>
+
+        </div>
       </section>
 
-      {/* WHY US */}
-      <section className="py-28 text-center px-6">
-
-        <h2 className="text-4xl font-black mb-12">
-          Pourquoi nous choisir
-        </h2>
-
-        <div className="grid md:grid-cols-3 max-w-4xl mx-auto gap-10 text-gray-400">
+      {/* TRUST STRIP */}
+      <section className="py-16 border-y border-white/10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 text-center gap-8">
 
           <div>
-            <Sparkles className="mx-auto text-red-500 mb-3" />
-            Produits premium
+            <Star className="mx-auto text-red-500 mb-3" />
+            <p className="text-gray-300">Résultats premium garantis</p>
           </div>
 
           <div>
             <ShieldCheck className="mx-auto text-red-500 mb-3" />
-            Satisfaction garantie
+            <p className="text-gray-300">Service professionnel</p>
           </div>
 
           <div>
-            <Calendar className="mx-auto text-red-500 mb-3" />
-            Service rapide
+            <MapPin className="mx-auto text-red-500 mb-3" />
+            <p className="text-gray-300">Déplacement inclus</p>
           </div>
 
         </div>
+      </section>
+
+      {/* SERVICES AGENCE */}
+      <section className="py-28 max-w-7xl mx-auto px-6">
+
+        <h2 className="text-center text-5xl font-black mb-20 uppercase">
+          Services Premium
+        </h2>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+
+          {services.map((s) => (
+            <div
+              key={s.title}
+              className="bg-zinc-950 border border-white/10 rounded-2xl overflow-hidden hover:border-red-600 transition"
+            >
+
+              <img src={s.image} className="h-64 w-full object-cover" />
+
+              <div className="p-6">
+
+                <h3 className="text-2xl font-bold mb-2">{s.title}</h3>
+
+                <p className="text-red-500 font-black text-xl mb-3">
+                  {s.price}
+                </p>
+
+                <p className="text-gray-400 text-sm">
+                  {s.desc}
+                </p>
+
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+      </section>
+
+      {/* EXPERIENCE BLOCK */}
+      <section className="py-24 bg-zinc-950 text-center px-6">
+
+        <h2 className="text-4xl font-black mb-6">
+          Automotive Excellence
+        </h2>
+
+        <p className="text-gray-400 max-w-2xl mx-auto">
+          Chaque véhicule est traité avec précision, passion et produits haut de gamme pour un résultat showroom.
+        </p>
 
       </section>
 
-      {/* CTA FINAL */}
-      <section className="py-28 text-center">
+      {/* CTA MID */}
+      <section className="py-24 text-center">
 
         <h2 className="text-4xl font-black mb-6">
           Prêt à transformer votre véhicule ?
@@ -216,8 +205,8 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-10 text-center text-gray-500">
-        © 2026 AL Auto Detailing — Tous droits réservés
+      <footer className="py-10 border-t border-white/10 text-center text-gray-500">
+        © 2026 AL Auto Premium Detailing
       </footer>
 
     </main>
