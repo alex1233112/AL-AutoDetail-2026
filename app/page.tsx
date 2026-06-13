@@ -144,7 +144,7 @@ export default function Home() {
               target="_blank"
               className="rounded-full bg-red-600 px-10 py-4 font-bold uppercase tracking-wider transition hover:scale-105 hover:bg-red-700"
             >
-              Réserver sur WhatsApp
+              Réserver maintenant
             </a>
 
             <a
@@ -246,7 +246,7 @@ export default function Home() {
 
           <div className="overflow-hidden rounded-[2rem] border border-white/10">
             <img
-              src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1600&auto=format&fit=crop"
+              src="https://share.google/cCwqxepT4b2rFrlFQ"
               alt="Polissage automobile"
               className="h-[550px] w-full object-cover"
             />
@@ -359,7 +359,7 @@ export default function Home() {
               className="flex items-center gap-3 rounded-full bg-black px-10 py-4 font-bold uppercase transition hover:scale-105"
             >
               <Phone className="h-5 w-5" />
-              WhatsApp
+              Réserver maintenant
             </a>
 
             <a
