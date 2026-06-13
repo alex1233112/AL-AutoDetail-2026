@@ -1,198 +1,426 @@
-"use client"
-
-import { useEffect } from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import AOS from "aos"
-import "aos/dist/aos.css"
-
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, Environment } from "@react-three/drei"
-
-function Car() {
-  return (
-    <mesh rotation={[0, 1, 0]}>
-      <boxGeometry args={[2, 0.5, 4]} />
-      <meshStandardMaterial color="red" metalness={0.8} roughness={0.2} />
-    </mesh>
-  )
-}
+import {
+  Car,
+  Sparkles,
+  ShieldCheck,
+  CalendarCheck,
+  Phone,
+  MapPin,
+  CheckCircle,
+  Star,
+} from "lucide-react";
 
 export default function Home() {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true })
-  }, [])
+  const phone = "450-803-4784";
+  const whatsapp = "https://wa.me/14508034784?text=Bonjour%20A.L%20Auto%20Detailing,%20je%20veux%20r%C3%A9server%20un%20service.";
 
   const services = [
-    { title: "Exterior Wash", price: "40$", img: "/exterieur.jpg" },
-    { title: "Interior Detail", price: "60$", img: "/interieur.jpg" },
-    { title: "Full Detail", price: "120$", img: "/fulldetail.jpg" },
-  ]
+    {
+      title: "Intérieur Premium",
+      price: "220$",
+      image:
+        "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=1600&auto=format&fit=crop",
+      description:
+        "Nettoyage complet de l'intérieur : tapis, sièges, plastiques, console, portes, coffre et finition détaillée.",
+      points: ["Aspirateur complet", "Nettoyage des surfaces", "Finition propre et premium"],
+    },
+    {
+      title: "Extérieur Premium",
+      price: "220$",
+      image:
+        "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1600&auto=format&fit=crop",
+      description:
+        "Lavage extérieur professionnel avec décontamination légère, nettoyage des roues et finition brillante.",
+      points: ["Lavage minutieux", "Roues et pneus", "Brillance extérieure"],
+    },
+    {
+      title: "Package Complet",
+      price: "380$",
+      image:
+        "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?q=80&w=1600&auto=format&fit=crop",
+      description:
+        "Le meilleur choix : intérieur premium + extérieur premium pour une transformation complète du véhicule.",
+      points: ["Intérieur + extérieur", "Meilleur rapport qualité/prix", "Résultat complet"],
+    },
+  ];
+
+  const coatings = [
+    {
+      title: "Céramique 3 mois",
+      image:
+        "https://images.unsplash.com/photo-1621929747188-0b4dc28498d2?q=80&w=1600&auto=format&fit=crop",
+      text: "Protection hydrophobe idéale pour garder une belle brillance et faciliter les lavages.",
+    },
+    {
+      title: "Céramique 6 mois",
+      image:
+        "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=80&w=1600&auto=format&fit=crop",
+      text: "Protection plus durable contre les contaminants, l'eau, la saleté et les dépôts routiers.",
+    },
+    {
+      title: "Céramique 9 mois",
+      image:
+        "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=1600&auto=format&fit=crop",
+      text: "Protection premium longue durée avec un effet brillant, lisse et hydrophobe.",
+    },
+  ];
+
+  const maintenance = [
+    {
+      title: "Chaque semaine",
+      price: "100$",
+      text: "Parfait pour garder un véhicule toujours propre.",
+    },
+    {
+      title: "Aux deux semaines",
+      price: "130$",
+      text: "Idéal pour un entretien régulier sans laisser la saleté s'accumuler.",
+    },
+    {
+      title: "Chaque mois",
+      price: "160$",
+      text: "Un service basic pour maintenir un bon niveau de propreté.",
+    },
+  ];
 
   return (
-    <main className="bg-black text-white overflow-hidden">
+    <main className="min-h-screen bg-black text-white">
+      {/* NAVBAR */}
+      <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="#accueil" className="flex items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="A.L Auto Detailing"
+              className="h-14 w-auto"
+            />
+          </a>
+
+          <nav className="hidden items-center gap-8 text-sm font-semibold uppercase tracking-widest text-gray-300 md:flex">
+            <a href="#services" className="transition hover:text-red-500">
+              Services
+            </a>
+            <a href="#polissage" className="transition hover:text-red-500">
+              Polissage
+            </a>
+            <a href="#ceramique" className="transition hover:text-red-500">
+              Céramique
+            </a>
+            <a href="#maintenance" className="transition hover:text-red-500">
+              Maintenance
+            </a>
+            <a href="#contact" className="transition hover:text-red-500">
+              Contact
+            </a>
+          </nav>
+
+          <a
+            href={whatsapp}
+            target="_blank"
+            className="rounded-full bg-red-600 px-5 py-3 text-sm font-bold transition hover:bg-red-700"
+          >
+            Réserver
+          </a>
+        </div>
+      </header>
 
       {/* HERO */}
-      <section className="h-screen flex flex-col items-center justify-center relative text-center">
+      <section
+        id="accueil"
+        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center px-6 pt-28 text-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.95)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1800&auto=format&fit=crop')",
+        }}
+      >
+        <div className="absolute left-10 top-32 h-72 w-72 rounded-full bg-red-600/20 blur-3xl" />
+        <div className="absolute bottom-20 right-10 h-96 w-96 rounded-full bg-red-700/20 blur-3xl" />
 
-        <div className="absolute inset-0 bg-[url('/car-bg.jpg')] bg-cover bg-center opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black" />
+        <div className="relative z-10 max-w-5xl">
+          <img
+            src="/logo.png"
+            alt="A.L Auto Detailing"
+            className="mx-auto mb-8 w-72 md:w-96"
+          />
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-6xl font-bold tracking-widest z-10"
-        >
-          AL AUTO DETAIL
-        </motion.h1>
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.4em] text-red-500">
+            Blainville / Laurentides
+          </p>
 
-        <p className="text-red-500 mt-3 z-10">
-          FERRARI EXPERIENCE DETAILING
-        </p>
+          <h1 className="text-5xl font-black uppercase leading-tight md:text-7xl">
+            Detailing automobile
+            <span className="block text-red-600">premium</span>
+          </h1>
 
-        <div className="mt-6 z-10">
-          <Image src="/logo.png" width={140} height={140} alt="logo" />
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-300 md:text-xl">
+            Nous redonnons vie à votre véhicule avec un service minutieux,
+            propre et professionnel. Chaque détail compte.
+          </p>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href={whatsapp}
+              target="_blank"
+              className="rounded-full bg-red-600 px-10 py-4 font-bold uppercase tracking-wider transition hover:scale-105 hover:bg-red-700"
+            >
+              Réserver sur WhatsApp
+            </a>
+
+            <a
+              href={`tel:${phone}`}
+              className="rounded-full border border-white/30 px-10 py-4 font-bold uppercase tracking-wider transition hover:border-red-600 hover:text-red-500"
+            >
+              Appeler
+            </a>
+          </div>
         </div>
-
-        <a
-          href="#car"
-          className="mt-8 bg-red-600 px-8 py-3 rounded-full font-bold hover:scale-105 transition z-10"
-        >
-          Voir expérience 3D
-        </a>
-      </section>
-
-      {/* 3D CAR SECTION */}
-      <section id="car" className="py-32 bg-black text-center">
-
-        <h2 className="text-4xl font-bold mb-10">
-          Showroom 3D
-        </h2>
-
-        <div className="h-[500px] w-full">
-          <Canvas camera={{ position: [5, 2, 5] }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[5, 5, 5]} />
-
-            <Car />
-
-            <OrbitControls autoRotate autoRotateSpeed={2} enableZoom />
-            <Environment preset="city" />
-          </Canvas>
-        </div>
-
-        <p className="text-gray-400 mt-4">
-          Tourne la voiture avec ta souris
-        </p>
       </section>
 
       {/* SERVICES */}
-      <section className="py-32 px-6">
+      <section id="services" className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-red-500">
+              Nos services
+            </p>
+            <h2 className="text-4xl font-black uppercase md:text-6xl">
+              Services Premium
+            </h2>
+          </div>
 
-        <h2 className="text-4xl text-center font-bold mb-16">
-          Nos Services
-        </h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 shadow-2xl transition duration-300 hover:-translate-y-3 hover:border-red-600/60"
+              >
+                <div className="relative h-72 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
+                  <p className="absolute bottom-5 left-5 rounded-full bg-red-600 px-5 py-2 text-2xl font-black">
+                    {service.price}
+                  </p>
+                </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="p-8">
+                  <h3 className="mb-4 text-3xl font-black">{service.title}</h3>
+                  <p className="mb-6 leading-7 text-gray-300">
+                    {service.description}
+                  </p>
 
-          {services.map((s, i) => (
-            <div
-              key={i}
-              data-aos="fade-up"
-              className="bg-zinc-900 rounded-2xl overflow-hidden hover:scale-105 transition border border-red-900"
-            >
-              <Image src={s.img} width={600} height={400} alt={s.title} />
-              <div className="p-5">
-                <h3 className="text-xl font-bold">{s.title}</h3>
-                <p className="text-red-500 font-bold">{s.price}</p>
+                  <div className="space-y-3">
+                    {service.points.map((point, i) => (
+                      <p key={i} className="flex items-center gap-3 text-gray-300">
+                        <CheckCircle className="h-5 w-5 text-red-500" />
+                        {point}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* POLISSAGE */}
+      <section id="polissage" className="bg-zinc-950 px-6 py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-red-500">
+              Correction peinture
+            </p>
+
+            <h2 className="text-4xl font-black uppercase md:text-6xl">
+              Polissage 1-2 étapes
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+              Le polissage permet de corriger les micro-rayures, les marques de
+              lavage, l'oxydation légère et de redonner une profondeur à la
+              peinture.
+            </p>
+
+            <div className="mt-8 grid gap-5">
+              <div className="rounded-3xl border border-white/10 bg-black p-6">
+                <h3 className="mb-2 flex items-center gap-3 text-2xl font-bold">
+                  <Sparkles className="text-red-500" />
+                  Polissage 1 étape
+                </h3>
+                <p className="text-gray-300">
+                  Idéal pour améliorer la brillance et retirer les petites
+                  imperfections légères.
+                </p>
+              </div>
+
+              <div className="rounded-3xl border border-red-600/40 bg-black p-6">
+                <h3 className="mb-2 flex items-center gap-3 text-2xl font-bold">
+                  <Star className="text-red-500" />
+                  Polissage 2 étapes
+                </h3>
+                <p className="text-gray-300">
+                  Correction plus avancée pour un résultat plus profond, plus
+                  brillant et plus professionnel.
+                </p>
               </div>
             </div>
-          ))}
+          </div>
 
+          <div className="overflow-hidden rounded-[2rem] border border-white/10">
+            <img
+              src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1600&auto=format&fit=crop"
+              alt="Polissage automobile"
+              className="h-[550px] w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* CERAMIQUE */}
+      <section id="ceramique" className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-red-500">
+              Protection peinture
+            </p>
+            <h2 className="text-4xl font-black uppercase md:text-6xl">
+              Céramique Coating
+            </h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            {coatings.map((item, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 transition hover:border-red-600/60"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-64 w-full object-cover"
+                />
+
+                <div className="p-8">
+                  <ShieldCheck className="mb-5 h-12 w-12 text-red-500" />
+                  <h3 className="mb-4 text-3xl font-black">{item.title}</h3>
+                  <p className="leading-7 text-gray-300">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* MAINTENANCE */}
-      <section className="py-24 bg-zinc-950 text-center px-6">
+      <section id="maintenance" className="bg-zinc-950 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-red-500">
+              Entretien régulier
+            </p>
+            <h2 className="text-4xl font-black uppercase md:text-6xl">
+              Maintenance
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-gray-300">
+              Un service basic parfait pour garder votre véhicule propre toute
+              l'année.
+            </p>
+          </div>
 
-        <h2 className="text-4xl font-bold mb-6">
-          Maintenance Premium
-        </h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {maintenance.map((item, index) => (
+              <div
+                key={index}
+                className="rounded-[2rem] border border-red-600/40 bg-black p-8 text-center transition hover:-translate-y-2 hover:bg-red-600"
+              >
+                <CalendarCheck className="mx-auto mb-5 h-14 w-14" />
+                <h3 className="text-2xl font-bold">{item.title}</h3>
+                <p className="my-6 text-5xl font-black">{item.price}</p>
+                <p className="text-gray-300">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <div className="max-w-xl mx-auto border border-red-900 p-6 rounded-xl bg-black">
+      {/* ABOUT */}
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-5xl text-center">
+          <Car className="mx-auto mb-6 h-16 w-16 text-red-500" />
 
-          <p className="text-gray-300">
-            Gardez votre voiture toujours parfaite.
+          <h2 className="text-4xl font-black uppercase md:text-6xl">
+            Deux jeunes passionnés
+          </h2>
+
+          <p className="mt-8 text-lg leading-9 text-gray-300">
+            Nous sommes deux jeunes passionnés de véhicules qui aiment prendre
+            soin de leur travail. Chez A.L Auto Detailing, chaque voiture est
+            traitée avec minutie, respect et attention. Notre but est simple :
+            offrir un résultat propre, professionnel et à la hauteur de vos
+            attentes.
           </p>
 
-          <ul className="mt-6 space-y-2 text-gray-300">
-            <li>💎 100$ / semaine</li>
-            <li>💎 130$ / 2 semaines</li>
-            <li>💎 160$ / mois</li>
-          </ul>
-
+          <p className="mt-5 text-lg leading-9 text-gray-300">
+            Que ce soit pour un nettoyage intérieur, extérieur, un package
+            complet, un polissage ou une protection céramique, nous prenons le
+            temps de bien faire les choses.
+          </p>
         </div>
       </section>
 
-      {/* GALLERY */}
-      <section className="py-32 px-6">
-
-        <h2 className="text-4xl text-center font-bold mb-12">
-          Résultats
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-          <Image src="/g1.jpg" width={500} height={400} alt="" />
-          <Image src="/g2.jpg" width={500} height={400} alt="" />
-          <Image src="/g3.jpg" width={500} height={400} alt="" />
-        </div>
-
-      </section>
-
-      {/* BOOKING */}
-      <section className="py-32 bg-black px-6">
-
-        <h2 className="text-4xl text-center font-bold mb-10">
-          Réservation
-        </h2>
-
-        <form className="max-w-xl mx-auto space-y-4">
-
-          <input className="w-full p-4 bg-zinc-900 border border-gray-700 rounded"
-            placeholder="Nom complet" />
-
-          <input className="w-full p-4 bg-zinc-900 border border-gray-700 rounded"
-            placeholder="Téléphone" />
-
-          <select className="w-full p-4 bg-zinc-900 border border-gray-700 rounded">
-            <option>Exterior Wash</option>
-            <option>Interior Detail</option>
-            <option>Full Detail</option>
-          </select>
-
-          <textarea className="w-full p-4 bg-zinc-900 border border-gray-700 rounded"
-            placeholder="Notes client" />
-
-          <button className="w-full bg-red-600 py-4 font-bold rounded hover:scale-105 transition">
-            Envoyer
-          </button>
-
-        </form>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="py-10 text-center text-gray-500 border-t border-zinc-800">
-        AL Auto Detail © 2026 - Saint-Jérôme
-      </footer>
-
-      {/* WHATSAPP */}
-      <a
-        href="https://wa.me/14501234567?text=Je veux réserver un detailing"
-        className="fixed bottom-6 right-6 bg-red-600 px-6 py-3 rounded-full font-bold hover:scale-110 transition"
+      {/* CONTACT */}
+      <section
+        id="contact"
+        className="bg-gradient-to-br from-red-700 via-red-600 to-black px-6 py-20"
       >
-        WhatsApp
-      </a>
+        <div className="mx-auto max-w-5xl text-center">
+          <img
+            src="/logo.png"
+            alt="A.L Auto Detailing"
+            className="mx-auto mb-8 w-64"
+          />
 
+          <h2 className="text-4xl font-black uppercase md:text-6xl">
+            Prêt à réserver ?
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90">
+            Contacte-nous dès aujourd'hui pour redonner une nouvelle vie à ton
+            véhicule.
+          </p>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row">
+            <a
+              href={whatsapp}
+              target="_blank"
+              className="flex items-center gap-3 rounded-full bg-black px-10 py-4 font-bold uppercase transition hover:scale-105"
+            >
+              <Phone className="h-5 w-5" />
+              WhatsApp
+            </a>
+
+            <a
+              href={`tel:${phone}`}
+              className="flex items-center gap-3 rounded-full border border-white px-10 py-4 font-bold uppercase transition hover:bg-white hover:text-black"
+            >
+              <Phone className="h-5 w-5" />
+              {phone}
+            </a>
+          </div>
+
+          <p className="mt-8 flex items-center justify-center gap-2 text-white/90">
+            <MapPin className="h-5 w-5" />
+            Blainville / Laurentides
+          </p>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 bg-black px-6 py-8 text-center text-sm text-gray-500">
+        © 2026 A.L Auto Detailing — Tous droits réservés.
+      </footer>
     </main>
-  )
+  );
 }
