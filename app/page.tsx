@@ -11,9 +11,10 @@ import {
 
 export default function Home() {
   const phone = "450-803-4784";
-  const whatsapp =
-    "https://wa.me/14508034784?text=Bonjour%20A.L%20Auto%20Detailing,%20je%20veux%20r%C3%A9server%20un%20service.";
-
+  
+  const booking =
+  "https://calendly.com/alautodetail88";
+  
   const services = [
     {
       title: "Intérieur Premium",
@@ -59,12 +60,7 @@ export default function Home() {
         "https://images.unsplash.com/photo-1621929747188-0b4dc28498d2?q=80&w=1600&auto=format&fit=crop",
       text: "Protection hydrophobe idéale pour garder une belle brillance et faciliter les lavages.",
     },
-    {
-      title: "Céramique 6 mois",
-      image:
-        "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=80&w=1600&auto=format&fit=crop",
-      text: "Protection plus durable contre les contaminants, l'eau, la saleté et les dépôts routiers.",
-    },
+      
     {
       title: "Céramique 9 mois",
       image:
@@ -108,7 +104,7 @@ export default function Home() {
           </nav>
 
           <a
-            href={whatsapp}
+            href={booking}
             target="_blank"
             className="rounded-full bg-red-600 px-5 py-3 text-sm font-bold transition hover:bg-red-700"
           >
@@ -144,7 +140,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href={whatsapp}
+              href={booking}
               target="_blank"
               className="rounded-full bg-red-600 px-10 py-4 font-bold uppercase tracking-wider transition hover:scale-105 hover:bg-red-700"
             >
@@ -358,7 +354,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row">
             <a
-              href={whatsapp}
+              href={booking}
               target="_blank"
               className="flex items-center gap-3 rounded-full bg-black px-10 py-4 font-bold uppercase transition hover:scale-105"
             >
