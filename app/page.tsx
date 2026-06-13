@@ -246,7 +246,7 @@ export default function Home() {
 
           <div className="overflow-hidden rounded-[2rem] border border-white/10">
             <img
-              src="https://share.google/cCwqxepT4b2rFrlFhttps://share.google/Yy5BraukP7LZpwALz"
+              src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1600&auto=format&fit=crop"
               alt="Polissage automobile"
               className="h-[550px] w-full object-cover"
             />
